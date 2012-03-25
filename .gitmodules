@@ -7,3 +7,6 @@
 [submodule "emacs/emacs-color-theme-solarized"]
 	path = emacs/emacs-color-theme-solarized
 	url = git://github.com/sellout/emacs-color-theme-solarized.git
+[submodule "vim/.vim/bundle/Obvious-Mode"]
+	path = vim/.vim/bundle/Obvious-Mode
+	url = https://github.com/vim-scripts/Obvious-Mode.git
