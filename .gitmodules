@@ -10,3 +10,6 @@
 [submodule "vim/.vim/bundle/Obvious-Mode"]
 	path = vim/.vim/bundle/Obvious-Mode
 	url = https://github.com/vim-scripts/Obvious-Mode.git
+[submodule "vim/.vim/bundle/vim-autoclose"]
+	path = vim/.vim/bundle/vim-autoclose
+	url = https://github.com/Townk/vim-autoclose.git
