@@ -9,4 +9,5 @@ call pathogen#infect()
 syntax enable
 set background=dark
 colorscheme solarized
-map <F2> :NERDTreeToggle<CR>
+map <D-t> :CommandT<CR>
+
