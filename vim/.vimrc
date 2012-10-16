@@ -10,3 +10,8 @@ syntax enable
 set background=dark
 colorscheme solarized
 map <F2> :NERDTreeToggle<CR>
+
+let vimclojure#WantNailgun = 1
+let vimclojure#NailgunClient = "/Users/timothy/source/nailgun/ng"
+let g:vimclojure#HighlightBuiltins = 1
+let g:vimclojure#ParenRainbow = 1
