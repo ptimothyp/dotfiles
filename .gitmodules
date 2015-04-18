@@ -40,3 +40,6 @@
 [submodule "vim/.vim/bundle/VimClojure"]
 	path = vim/.vim/bundle/VimClojure
 	url = https://github.com/vim-scripts/VimClojure.git
+[submodule "vim/.vim/bundle/font-size"]
+	path = vim/.vim/bundle/font-size
+	url = https://github.com/drmikehenry/vim-fontsize.git
