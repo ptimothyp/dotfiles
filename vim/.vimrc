@@ -115,7 +115,7 @@ filetype indent on
 :set guioptions-=m
 :set guioptions-=T
 :set guioptions-=r
-:set gfn=DejaVu\ Sans\ Mono\ 10
+:set gfn=DejaVu\ Sans\ Mono\ 14
 :set autochdir
 :set number
 
@@ -176,3 +176,21 @@ if 'VIRTUAL_ENV' in os.environ:
   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
   execfile(activate_this, dict(__file__=activate_this))
 EOF
+
+
+"Mapping to support Colemak
+noremap d g
+noremap e k
+noremap n j
+noremap i l
+noremap u i
+noremap l u
+noremap y o
+noremap f e
+noremap t g
+noremap j y
+noremap g t
+noremap s d
+noremap T F
+noremap U I
+noremap Y O
