@@ -127,7 +127,8 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
-
+" Setting the font in GUI
+set guifont=DejaVu\ Sans\ Mono\ 10 h18
 
 " Python specific settings
 au BufNewFile,BufRead *.py
@@ -149,6 +150,8 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=5
+
+set guifont=menlo:h18
 
 
 "split navigations
