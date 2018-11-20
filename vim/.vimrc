@@ -4,7 +4,6 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-
 Plugin 'gmarik/Vundle.vim'
 
 " The following are examples of different formats supported.
@@ -170,6 +169,17 @@ set encoding=utf-8
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+if has('gui_running')
+  set guifont=Monaco:h18
+endif
+
+"Rename variable
+" For local replace
+nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
+
+" For global replace
+nnoremap gR gD:%s/<C-R>///gc<left><left><left>
+
 "python with virtualenv support
 py3 << EOF
 import os
@@ -179,3 +189,5 @@ if 'VIRTUAL_ENV' in os.environ:
   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
   execfile(activate_this, dict(__file__=activate_this))
 EOF
+
+
