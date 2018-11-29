@@ -81,6 +81,13 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 Plugin 'ntpeters/vim-better-whitespace'
 
+"  Typescript plugins
+Plugin 'leafgarland/typescript-vim'
+Plugin 'quramy/tsuquyomi'
+Plugin 'mhartington/vim-typings'
+Pluging 'Shougo/denite.nvim'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
