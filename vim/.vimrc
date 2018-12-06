@@ -80,6 +80,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'pope/vim-commentary'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -127,7 +128,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
-
+set viminfo='100,f1
 
 " Python specific settings
 au BufNewFile,BufRead *.py
@@ -161,6 +162,7 @@ nnoremap <C-H> <C-W><C-H>
 set foldmethod=indent
 set foldlevel=99
 
+
 "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 set encoding=utf-8
@@ -179,18 +181,19 @@ EOF
 
 
 "Mapping to support Colemak
-noremap d g
-noremap e k
-noremap n j
-noremap i l
-noremap u i
-noremap l u
-noremap y o
-noremap f e
-noremap t g
-noremap j y
-noremap g t
-noremap s d
-noremap T F
-noremap U I
-noremap Y O
+"noremap d g
+"noremap e k
+"noremap n j
+"noremap i l
+"noremap u i
+"noremap l u
+"noremap L U
+"noremap y o
+"noremap f e
+"noremap t g
+"noremap j y
+"noremap g t
+"noremap s d
+"noremap T F
+"noremap U I
+"noremap Y O
