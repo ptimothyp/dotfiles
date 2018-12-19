@@ -84,6 +84,7 @@ filetype plugin indent on    " required
 set t_Co=256
 syntax on
 set background=dark
+set gfn=DejaVu\ Sans\ Mono\ 14
 
 if has('gui_running')
   set background=dark
@@ -99,7 +100,7 @@ filetype indent on
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
-set gfn=DejaVu\ Sans\ Mono\ 14
+"set gfn=DejaVu\ Sans\ Mono\ 14
 set autochdir
 set number
 set relativenumber
@@ -165,7 +166,10 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 if has('gui_running')
-  set guifont=Monaco:h18
+  set background=dark
+  colorscheme solarized
+else
+  colorscheme zenburn
 endif
 
 "Rename variable
