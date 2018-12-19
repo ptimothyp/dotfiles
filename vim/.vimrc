@@ -1,65 +1,55 @@
 set nocompatible " be iMproved, required
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
 " Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
+Plug 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
+" Plug 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-
-
-Plugin 'Lokaltog/vim-distinguished'
-
-Plugin 'jelera/vim-javascript-syntax'
-
-Plugin 'pangloss/vim-javascript'
-
-Plugin 'nathanaelkane/vim-indent-guides'
-
-Plugin 'Raimondi/delimitMate'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'Lokaltog/vim-distinguished'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Raimondi/delimitMate'
+Plug 'mattn/emmet-vim'
 
 
 imap <C-c> <CR><Esc>O
 
-
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 " This does what it says on the tin. It will check your file on open too, not just on save.
 " You might not want this, so just leave it out if you don't.
 let g:syntastic_check_on_open=1
 au FileType javascript call JavaScriptFold()
 
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'ervandew/supertab'
+Plug 'Valloric/YouCompleteMe'
+Plug 'ervandew/supertab'
 " These are the tweaks I apply to YCM's config, you don't need them but they might help.
 " YCM gives you popups and splits by default that some people might not like, so these should tidy it up a bit for you.
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
 
-Plugin 'marijnh/tern_for_vim'
-Plugin 'scrooloose/nerdtree'
+Plug 'marijnh/tern_for_vim'
+Plug 'scrooloose/nerdtree'
 
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
-Plugin 'nvie/vim-flake8'
+Plug 'nvie/vim-flake8'
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -71,26 +61,31 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'tmhedberg/SimpylFold'
+Plug 'vim-scripts/indentpython.vim'
+" Color Theme
+Plug 'jnurmine/Zenburn'
+Plug 'altercation/vim-colors-solarized'
 
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'pope/vim-commentary'
+Plug 'kien/ctrlp.vim'
+Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+Plug 'ntpeters/vim-better-whitespace'
+
+Plug  'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+
+
+call plug#end()           " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
 " Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PlugList       - lists configured plugins
+
+" :PlugInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
@@ -103,7 +98,6 @@ set background=dark
 if has('gui_running')
   set background=dark
   colorscheme solarized
-  "colorscheme distinguished
 else
   colorscheme zenburn
 endif
@@ -112,14 +106,16 @@ call togglebg#map("<F5>")
 
 filetype plugin on
 filetype indent on
-:set guioptions-=m
-:set guioptions-=T
-:set guioptions-=r
-:set gfn=DejaVu\ Sans\ Mono\ 14
-:set autochdir
-:set number
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set gfn=DejaVu\ Sans\ Mono\ 14
+set autochdir
+set number
+set relativenumber
+set incsearch
 
-let mapleader=","
+let mapleader=" "
 let g:tern_map_keys=1
 
 autocmd StdinReadPre * let s:std_in=1
@@ -128,6 +124,7 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 set viminfo='100,f1
+set noswapfile
 
 " Python specific settings
 au BufNewFile,BufRead *.py
@@ -139,6 +136,13 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
+let python_highlight_all=1
+"End python specific settings
+
+au BufNewFile,BufRead *.js, *.html, *.css
+	 \ set tabstop=2
+	 \ set softtabstop=2
+	 \ set shiftwidth=2
 
 let g:better_whitespace_guicolor='red'
 let g:better_whitespace_enabled=1
@@ -150,6 +154,7 @@ set statusline+=%*
 let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=5
 
+let g:SimpylFold_docstring_preview=1
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -160,6 +165,7 @@ nnoremap <C-H> <C-W><C-H>
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
+nnoremap <space> za
 
 
 "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
@@ -179,20 +185,3 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 
 
-"Mapping to support Colemak
-"noremap d g
-"noremap e k
-"noremap n j
-"noremap i l
-"noremap u i
-"noremap l u
-"noremap L U
-"noremap y o
-"noremap f e
-"noremap t g
-"noremap j y
-"noremap g t
-"noremap s d
-"noremap T F
-"noremap U I
-"noremap Y O
