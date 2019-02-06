@@ -11,8 +11,11 @@ Plug 'pangloss/vim-javascript'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
+Plug 'nelstrom/vim-qargs'
 
-
+" Typescript specific plugins
+Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 imap <C-c> <CR><Esc>O
 
 Plug 'scrooloose/syntastic'
@@ -20,7 +23,8 @@ Plug 'scrooloose/syntastic'
 " This does what it says on the tin. It will check your file on open too, not just on save.
 " You might not want this, so just leave it out if you don't.
 let g:syntastic_check_on_open=1
-au FileType javascript call JavaScriptFold()
+let g:syntastic_java_javac_config_file_enabled = 1
+"au FileType javascript call JavaScriptFold()
 
 Plug 'Valloric/YouCompleteMe'
 Plug 'ervandew/supertab'
@@ -112,7 +116,7 @@ let g:tern_map_keys=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+let NERDTreeIgnore=['\.pyc$', '\~$', '\.class$'] "ignore files in NERDTree
 
 set viminfo='100,f1
 set noswapfile
@@ -130,10 +134,10 @@ au BufNewFile,BufRead *.py
 let python_highlight_all=1
 "End python specific settings
 
-au BufNewFile,BufRead *.js, *.html, *.css
-	 \ set tabstop=2
-	 \ set softtabstop=2
-	 \ set shiftwidth=2
+"au BufNewFile,BufRead *.js,*.html,*.css
+"	 \ set tabstop=2
+"	 \ set softtabstop=2
+"	 \ set shiftwidth=2
 
 let g:better_whitespace_guicolor='red'
 let g:better_whitespace_enabled=1
@@ -157,6 +161,8 @@ nnoremap <C-H> <C-W><C-H>
 set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
+
+nnoremap <f4> :!ctags -R<CR>
 
 
 "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
