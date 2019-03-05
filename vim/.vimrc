@@ -16,6 +16,8 @@ Plug 'nelstrom/vim-qargs'
 " Typescript specific plugins
 Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'w0rp/ale'
 imap <C-c> <CR><Esc>O
 
 Plug 'scrooloose/syntastic'
@@ -177,6 +179,26 @@ if has('gui_running')
 else
   colorscheme zenburn
 endif
+
+if !exists("g:ycm_semantic_triggers")
+	  let g:ycm_semantic_triggers = {}
+  endif
+
+let g:ycm_semantic_triggers['typescript'] = ['.']
+
+
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescript': ['tsserver', 'tslint'],
+\   'vue': ['eslint']
+\}
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\   'typescript': ['prettier'],
+\}
+
+let g:ale_fix_on_save = 1
 
 "Rename variable
 " For local replace
