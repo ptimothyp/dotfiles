@@ -117,29 +117,38 @@ let g:tern_map_keys=1
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+"typescript formtting
+"Prettier
+autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.class$'] "ignore files in NERDTree
+
+let NERDTreeShowHidden=1
+let g:NERDTreeWinPos = "right"
+
 
 set viminfo='100,f1
 set noswapfile
 
 " Python specific settings
 au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
+\ set tabstop=4 |
+\ set softtabstop=4 |
+\ set shiftwidth=4 |
+\ set textwidth=79 |
+\ set expandtab |
+\ set autoindent |
+\ set fileformat=unix
 
 let python_highlight_all=1
 "End python specific settings
 
-"au BufNewFile,BufRead *.js,*.html,*.css
-"	 \ set tabstop=2
-"	 \ set softtabstop=2
-"	 \ set shiftwidth=2
+au BufNewFile,BufRead *.js,*.html,*.css
+\	set tabstop=2
+\	| set softtabstop=2
+\	| set shiftwidth=2
 
 let g:better_whitespace_guicolor='red'
 let g:better_whitespace_enabled=1

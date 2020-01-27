@@ -20,9 +20,9 @@ call minpac#add('janko-m/vim-test')
 call minpac#add('easymotion/vim-easymotion')
 call minpac#add('mattn/emmet-vim')
 
-call minpac#add ('plasticboy/vim-markdown')
+" call minpac#add ('godlygeek/tabular')
+" call minpac#add ('plasticboy/vim-markdown')
 call minpac#add ('scrooloose/nerdtree')
-
 
 " This is for automatically tracking and saving the session
 " call minpac#add ('tpope/vim-obsession')
@@ -31,7 +31,7 @@ call minpac#add ('scrooloose/nerdtree')
 " call minpac#add ('tpope/vim-commentary')
 
 
- let mapleader = " "
+let mapleader = ","
 
 " Shorthand for updating packages using the minpac plugin to manage the
 " packages
