@@ -55,6 +55,7 @@ let g:grepper.tools = ['rg', 'grep', 'git']
 " Search for the current word
 nnoremap <Leader>* :Grepper -cword -noprompt<CR>
 " Search for the current selection
+" TODO: This will collide with gs => used for sorting by the vim-sort-motion plugin
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 
