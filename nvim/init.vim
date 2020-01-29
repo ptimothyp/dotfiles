@@ -13,21 +13,29 @@ call minpac#init()
 " call minpac#add('tpope/vim-dispatch')
 " call minpac#add('tpope/vim-projectionist')
 call minpac#add ('scrooloose/nerdtree')
-call minpac#add ('tpope/vim-commentary')
+call minpac#add('christoomey/vim-sort-motion')
+call minpac#add('christoomey/vim-system-copy')
+call minpac#add('christoomey/vim-titlecase')
 call minpac#add('easymotion/vim-easymotion')
+call minpac#add('inkarkat/vim-ReplaceWithRegister')
+call minpac#add('inkarkat/vim-visualrepeat')
 call minpac#add('janko-m/vim-test')
 call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('mattn/emmet-vim')
 call minpac#add('mhinz/vim-grepper')
+call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive') 
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('w0rp/ale')
-
+call minpac#add('kana/vim-textobj-user')
+call minpac#add('kana/vim-textobj-indent')
+call minpac#add('kana/vim-textobj-entire')
 
 let mapleader = ","
+
 " Shorthand for updating packages using the minpac plugin to manage the
 " packages
 command! PackUpdate call minpac#update()
