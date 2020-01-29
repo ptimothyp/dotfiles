@@ -79,7 +79,7 @@ nnoremap <C-H> <C-W><C-H>
 
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.class$'] "ignore files in NERDTree
-let NERGTreeShowHidden=1
+let NERDTreeShowHidden=1
 
 set number
 set relativenumber
