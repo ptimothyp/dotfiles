@@ -4,35 +4,30 @@
 "
 packadd minpac
 call minpac#init()
-call minpac#add('tpope/vim-surround')
-call minpac#add('tpope/vim-repeat')
-call minpac#add('tpope/vim-unimpaired')
-call minpac#add('k-takata/minpac', {'type': 'opt'})
-call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
-" call minpac#add('tpope/vim-projectionist')
-" call minpac#add('tpope/vim-dispatch')
-" call minpac#add('radenling/vim-dispatch-neovim')
-" call minpac#add('leafgarland/typescript-vim')
-call minpac#add('w0rp/ale')
-call minpac#add('mhinz/vim-grepper')
-call minpac#add('tpope/vim-fugitive') 
-call minpac#add('janko-m/vim-test')
-call minpac#add('easymotion/vim-easymotion')
-call minpac#add('mattn/emmet-vim')
 
 " call minpac#add ('godlygeek/tabular')
 " call minpac#add ('plasticboy/vim-markdown')
-call minpac#add ('scrooloose/nerdtree')
-
-" This is for automatically tracking and saving the session
 " call minpac#add ('tpope/vim-obsession')
-
-" Comment and Uncomment in all Vim supported languages.
-" call minpac#add ('tpope/vim-commentary')
+" call minpac#add('leafgarland/typescript-vim')
+" call minpac#add('radenling/vim-dispatch-neovim')
+" call minpac#add('tpope/vim-dispatch')
+" call minpac#add('tpope/vim-projectionist')
+call minpac#add ('scrooloose/nerdtree')
+call minpac#add ('tpope/vim-commentary')
+call minpac#add('easymotion/vim-easymotion')
+call minpac#add('janko-m/vim-test')
+call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+call minpac#add('mattn/emmet-vim')
+call minpac#add('mhinz/vim-grepper')
+call minpac#add('tpope/vim-fugitive') 
+call minpac#add('tpope/vim-repeat')
+call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-unimpaired')
+call minpac#add('w0rp/ale')
 
 
 let mapleader = ","
-
 " Shorthand for updating packages using the minpac plugin to manage the
 " packages
 command! PackUpdate call minpac#update()
