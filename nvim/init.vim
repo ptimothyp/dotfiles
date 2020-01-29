@@ -1,7 +1,3 @@
-" set runtimepath^=~/.vim runtimepath+=~/.vim/after
-" let &packpath = &runtimepath
-" source ~/.vimrc
-"
 packadd minpac
 call minpac#init()
 
@@ -22,6 +18,9 @@ call minpac#add('inkarkat/vim-visualrepeat')
 call minpac#add('janko-m/vim-test')
 call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
 call minpac#add('k-takata/minpac', {'type': 'opt'})
+call minpac#add('kana/vim-textobj-entire')
+call minpac#add('kana/vim-textobj-indent')
+call minpac#add('kana/vim-textobj-user')
 call minpac#add('mattn/emmet-vim')
 call minpac#add('mhinz/vim-grepper')
 call minpac#add('tpope/vim-commentary')
@@ -30,9 +29,6 @@ call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('w0rp/ale')
-call minpac#add('kana/vim-textobj-user')
-call minpac#add('kana/vim-textobj-indent')
-call minpac#add('kana/vim-textobj-entire')
 
 let mapleader = ","
 
