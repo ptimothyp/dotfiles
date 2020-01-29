@@ -115,4 +115,13 @@ let g:ale_fixers = {
 let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
 
+autocmd FileType vim setlocal commentstring=" \ %s
+
+nmap <Leader>r  <Plug>ReplaceWithRegisterOperator
+nmap <Leader>rr <Plug>ReplaceWithRegisterLine
+xmap <Leader>r  <Plug>ReplaceWithRegisterVisual
+
+let g:system_copy#copy_command='xclip -sel clipboard'
+let g:system_copy#paste_command='xclip -sel clipboard -o'
+
 
