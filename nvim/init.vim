@@ -1,4 +1,3 @@
-set nocompatible " be iMproved, required
 if &compatible
 	  " `:set nocp` has many side effects. Therefore this should be done
 	  "   " only when 'compatible' is set.
@@ -15,6 +14,7 @@ function! PackInit() abort
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 	" Additional plugins here.
+	
 	" call minpac#add ('godlygeek/tabular')
 	" call minpac#add ('plasticboy/vim-markdown')
 	" call minpac#add ('tpope/vim-obsession')
@@ -143,8 +143,8 @@ if has('unix')
 	let g:system_copy#paste_command='xclip -sel clipboard -o'
 else
 	let g:system_copy#copy_command='clip'
-	" This does not work need to figure it out
-	let g:system_copy#paste_command='powershell.exe -NoExit -OutputFormat Text -NonInteractive -Command "Get-Clipboard"'
+	let g:system_copy#paste_command='paste'
 	" let g:system_copy#paste_command='powershell.exe -command "Get-Clipboard"'
 	
 endif
+
