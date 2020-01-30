@@ -64,6 +64,8 @@ else
 
 endif
 
+nnoremap <Leader>g :Grepper -tool git<CR>
+nnoremap <Leader>G :Grepper -tool rg<CR>
 
 "Common settings
 "split navigations
