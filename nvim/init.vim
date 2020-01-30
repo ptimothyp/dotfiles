@@ -148,5 +148,3 @@ else
 	" let g:system_copy#paste_command='powershell.exe -command "Get-Clipboard"'
 	
 endif
-
-An unknown element "" was received. This can happen if the remote process closed or ended abnormally.
