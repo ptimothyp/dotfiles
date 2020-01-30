@@ -143,9 +143,6 @@ if exists('*togglebg#map')
 	call togglebg#map("<F5>")
 endif
 
-call togglebg#map("<F5>")
-
-
 let g:ale_fixers = {
 \	'javascript': ['prettier'],
 \	'html': ['prettier'],
