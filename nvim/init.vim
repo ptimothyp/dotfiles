@@ -167,7 +167,7 @@ if has('unix')
 	let g:system_copy#paste_command='xclip -sel clipboard -o'
 else
 	set packpath=~/_vim
-	set shell=cmd.exe
+	set shell=powershell.exe
 	let g:system_copy#copy_command='clip'
 	let g:system_copy#paste_command='powershell.exe -NoLogo -NoProfile -Noninteractive -Command "Get-Clipboard"'
 	" let g:system_copy#paste_command='powershell.exe -command "Get-Clipboard"'
