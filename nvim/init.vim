@@ -3,6 +3,7 @@ if &compatible
 	  "   " only when 'compatible' is set.
 	set nocompatible
 endif
+
 filetype on
 
 
@@ -124,11 +125,10 @@ set relativenumber
 :augroup END
 
 set hidden
-set shell=cmd.exe
 
 " Configuration for the plugin 'janko-m/vim-test' to use the dispatch so we
 " get the result of test failures in quick fix
-let test#strategy = "dispatch"
+" let test#strategy = "dispatch"
 
 
 " Traverse buffers quickly
@@ -151,7 +151,7 @@ else
 endif
 
 
-if !exists('*togglebg#map')
+if exists('*togglebg#map')
 	call togglebg#map("<F5>")
 endif
 
@@ -177,6 +177,7 @@ if has('unix')
 	let g:system_copy#paste_command='xclip -sel clipboard -o'
 else
 	set packpath=~/_vim
+	set shell=cmd.exe
 	let g:system_copy#copy_command='clip'
 	let g:system_copy#paste_command='powershell.exe -NoLogo -NoProfile -Noninteractive -Command "Get-Clipboard"'
 	" let g:system_copy#paste_command='powershell.exe -command "Get-Clipboard"'
