@@ -32,6 +32,7 @@ function! PackInit() abort
 	call minpac#add('inkarkat/vim-ReplaceWithRegister')
 	call minpac#add('inkarkat/vim-visualrepeat')
 	call minpac#add('janko-m/vim-test')
+	call minpac#add('junegunn/fzf')
 	call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 	call minpac#add('kana/vim-textobj-entire')
@@ -72,6 +73,38 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 let mapleader = ","
+
+
+nnoremap <C-p> :<C-u>FZF<CR>
+let g:fzf_buffers_jump = 1
+let FZF_DEFAULT_COMMAND='powershell.exe -NoLogo -NoProfile -Noninteractive -Command "Get-ChildItem -File -Recurse -Name"'
+
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+
+" Mappings for navigating ale warnings
+nmap <silent> [W <Plug>(ale_first)
+nmap <silent> [w <Plug>(ale_previous)
+nmap <silent> ]w <Plug>(ale_next)
+nmap <silent> ]W <Plug>(ale_last)
+
+" Setting for the grepper plugin
+let g:grepper = {}
+let g:grepper.tools = ['rg', 'grep', 'git']
+" Search for the current word
+nnoremap <Leader>* :Grepper -cword -noprompt<CR>
+" Search for the current selection
+" TODO: This will collide with gs => used for sorting by the vim-sort-motion plugin
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
+
+" Set up alias grep for GrepperGrep
+function! SetupCommandAlias(input, output)
+	exec 'cabbrev <expr> '.a:input
+	\ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:input.'")'
+	\ .'? ("'.a:output.'") : ("'.a:input.'"))'
+endfunction
+call SetupCommandAlias("grep", "GrepperGrep")
 :map Q <Nop>
 set gfn=DejaVu\ Sans\ Mono:h18
 
@@ -90,7 +123,7 @@ set relativenumber
 :augroup END
 
 set hidden
-set shell=powershell.exe
+set shell=cmd.exe
 
 " Configuration for the plugin 'janko-m/vim-test' to use the dispatch so we
 " get the result of test failures in quick fix
