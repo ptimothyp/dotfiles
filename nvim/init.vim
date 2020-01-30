@@ -49,20 +49,9 @@ function! PackInit() abort
   
 endfunction
 
-packadd minpac
-
-if !exists('*minpac#init')
-  " minpac is not available.
-
-  " Settings for plugin-less environment.
-  "
-else
-  " minpac is available.
-  command! PackUpdate call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
-  command! PackClean  call PackInit() | call minpac#clean()
-  command! PackStatus call PackInit() | call minpac#status()
-
-endif
+command! PackUpdate call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
+command! PackClean  call PackInit() | call minpac#clean()
+command! PackStatus call PackInit() | call minpac#status()
 
 nnoremap <Leader>g :Grepper -tool git<CR>
 nnoremap <Leader>G :Grepper -tool rg<CR>
@@ -142,18 +131,19 @@ set background=dark
 
 if has('gui_running')
 	set background=dark
-	let g:solarized_termcolors=256
 	colorscheme solarized
-  "colorscheme distinguished
 else
-	set background=dark
+	set background=light
 	colorscheme zenburn
+	let g:solarized_termcolors=256
 endif
 
 
 if exists('*togglebg#map')
 	call togglebg#map("<F5>")
 endif
+
+call togglebg#map("<F5>")
 
 
 let g:ale_fixers = {
