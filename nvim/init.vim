@@ -5,7 +5,6 @@ if &compatible
 endif
 filetype on
 
-set packpath=~/_vim
 
 function! PackInit() abort
 	packadd minpac
@@ -177,6 +176,7 @@ if has('unix')
 	let g:system_copy#copy_command='xclip -sel clipboard'
 	let g:system_copy#paste_command='xclip -sel clipboard -o'
 else
+	set packpath=~/_vim
 	let g:system_copy#copy_command='clip'
 	let g:system_copy#paste_command='powershell.exe -NoLogo -NoProfile -Noninteractive -Command "Get-Clipboard"'
 	" let g:system_copy#paste_command='powershell.exe -command "Get-Clipboard"'
