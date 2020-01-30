@@ -178,8 +178,7 @@ if has('unix')
 	let g:system_copy#paste_command='xclip -sel clipboard -o'
 else
 	let g:system_copy#copy_command='clip'
-	let g:system_copy#paste_command='paste'
+	let g:system_copy#paste_command='powershell.exe -NoLogo -NoProfile -Noninteractive -Command "Get-Clipboard"'
 	" let g:system_copy#paste_command='powershell.exe -command "Get-Clipboard"'
 	
 endif
-
