@@ -23,7 +23,7 @@ function! PackInit() abort
 	" call minpac#add('tpope/vim-dispatch')
 	" call minpac#add('tpope/vim-projectionist') 
 	call minpac#add ('scrooloose/nerdtree')
-	call minpac#add ('jnurmine/Zenburn')
+	call minpac#add ('jnurmine/zenburn')
 	call minpac#add('altercation/vim-colors-solarized')
 	call minpac#add('christoomey/vim-sort-motion')
 	call minpac#add('christoomey/vim-system-copy')
@@ -134,8 +134,8 @@ if has('gui_running')
 	colorscheme solarized
 else
 	set background=light
+	" let g:solarized_termcolors=256
 	colorscheme zenburn
-	let g:solarized_termcolors=256
 endif
 
 
@@ -164,7 +164,6 @@ if has('unix')
 	let g:system_copy#paste_command='xclip -sel clipboard -o'
 else
 	set packpath=~/_vim
-	set shell=powershell.exe
 	let g:system_copy#copy_command='clip'
 	let g:system_copy#paste_command='powershell.exe -NoLogo -NoProfile -Noninteractive -Command "Get-Clipboard"'
 	" let g:system_copy#paste_command='powershell.exe -command "Get-Clipboard"'
