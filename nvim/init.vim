@@ -1,6 +1,6 @@
 if &compatible
-	  " `:set nocp` has many side effects. Therefore this should be done
-	  "   " only when 'compatible' is set.
+	" `:set nocp` has many side effects. Therefore this should be done
+	"   " only when 'compatible' is set.
 	set nocompatible
 endif
 
@@ -64,7 +64,6 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 let mapleader = ","
-
 
 nnoremap <C-p> :<C-u>FZF<CR>
 let g:fzf_buffers_jump = 1
@@ -170,3 +169,6 @@ else
 	" let g:system_copy#paste_command='powershell.exe -command "Get-Clipboard"'
 	
 endif
+
+set tabstop=2
+set shiftwidth=2
