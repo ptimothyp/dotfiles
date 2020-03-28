@@ -18,7 +18,10 @@ function! PackInit() abort
 	" call minpac#add ('godlygeek/tabular')
 	" call minpac#add ('plasticboy/vim-markdown')
 	" call minpac#add ('tpope/vim-obsession')
-	" call minpac#add('leafgarland/typescript-vim')
+	call minpac#add('leafgarland/typescript-vim')
+	call minpac#add('pangloss/vim-javascript')
+	call minpac#add('peitalin/vim-jsx-typescript')
+	call minpac#add('jparise/vim-graphql')
 	" call minpac#add('radenling/vim-dispatch-neovim')
 	" call minpac#add('tpope/vim-dispatch')
 	" call minpac#add('tpope/vim-projectionist') 
@@ -46,6 +49,11 @@ function! PackInit() abort
 	call minpac#add('tpope/vim-surround')
 	call minpac#add('tpope/vim-unimpaired')
 	call minpac#add('w0rp/ale')
+	" Rust package
+	call minpac#add('rust-lang/rust.vim')
+	call minpac#add('vim-syntastic/syntastic')
+	call minpac#add('ycm-core/YouCompleteMe')
+	call minpac#add('Raimondi/delimitMate')
   
 endfunction
 
@@ -67,16 +75,17 @@ let mapleader = ","
 
 nnoremap <C-p> :<C-u>FZF<CR>
 let g:fzf_buffers_jump = 1
-let FZF_DEFAULT_COMMAND='powershell.exe -NoLogo -NoProfile -Noninteractive -Command "Get-ChildItem -File -Recurse -Name"'
+" let FZF_DEFAULT_COMMAND='powershell.exe -NoLogo -NoProfile -Noninteractive -Command "Get-ChildItem -File -Recurse -Name"'
+" let FZF_DEFAULT_COMMAND='powershell.exe -NoLogo -NoProfile -Noninteractive -Command "Get-ChildItem -File -Recurse -Name"'
 
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
 " Mappings for navigating ale warnings
-nmap <silent> [W <Plug>(ale_first)
-nmap <silent> [w <Plug>(ale_previous)
-nmap <silent> ]w <Plug>(ale_next)
-nmap <silent> ]W <Plug>(ale_last)
+nmap <silent> [W <call minpac#add(>(ale_first)
+nmap <silent> [w <call minpac#add(>(ale_previous)
+nmap <silent> ]w <call minpac#add(>(ale_next)
+nmap <silent> ]W <call minpac#add(>(ale_last)
 
 " Setting for the grepper plugin
 let g:grepper = {}
@@ -154,9 +163,9 @@ let g:ale_fix_on_save = 1
 
 autocmd FileType vim setlocal commentstring=" \ %s
 
-nmap <Leader>r  <Plug>ReplaceWithRegisterOperator
-nmap <Leader>rr <Plug>ReplaceWithRegisterLine
-xmap <Leader>r  <Plug>ReplaceWithRegisterVisual
+nmap <Leader>r  <call minpac#add(>ReplaceWithRegisterOperator
+nmap <Leader>rr <call minpac#add(>ReplaceWithRegisterLine
+xmap <Leader>r  <call minpac#add(>ReplaceWithRegisterVisual
 
 if has('unix')
 	let g:system_copy#copy_command='xclip -sel clipboard'
@@ -171,3 +180,12 @@ endif
 
 set tabstop=2
 set shiftwidth=2
+
+" Rust settings
+let g:rustfmt_autosave = 1
+let g:rust_clip_command = 'xclip -selection clipboard'
+
+let delimitMate_expand_cr = 1
+
+
+let g:NERDTreeWinPos = "right"
