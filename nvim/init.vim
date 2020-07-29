@@ -27,6 +27,7 @@ function! PackInit() abort
 	" call minpac#add('tpope/vim-projectionist') 
 	call minpac#add ('scrooloose/nerdtree')
 	call minpac#add ('jnurmine/zenburn')
+gruvbox-community/gruvbox
 	call minpac#add('altercation/vim-colors-solarized')
 	call minpac#add('christoomey/vim-sort-motion')
 	call minpac#add('christoomey/vim-system-copy')
