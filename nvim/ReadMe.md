@@ -8,8 +8,8 @@ scoop install neovim
 ```
 ## Install a package manager
 ```shell
--git clone https://github.com/k-takata/minpac.git \
--    ~/.config/nvim/pack/minpac/opt/minpac
+git clone https://github.com/k-takata/minpac.git \
+    ~/.config/nvim/pack/minpac/opt/minpac
 ```
 
 ## Install fuzzy searh
