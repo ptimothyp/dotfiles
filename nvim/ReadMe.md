@@ -1,7 +1,15 @@
+## Install Neovim
+### Windows
+#### Install scoop
+
+### Install NeoVim
+```powershell
+scoop install neovim
+```
 ## Install a package manager
 ```shell
-git clone https://github.com/k-takata/minpac.git \
-    ~/.config/nvim/pack/minpac/opt/minpac
+-git clone https://github.com/k-takata/minpac.git \
+-    ~/.config/nvim/pack/minpac/opt/minpac
 ```
 
 ## Install fuzzy searh
@@ -27,6 +35,10 @@ apt install python3-pip
 ### Install neo remote using pip3
 pip3 install --user --upgrade neovim-remote
 
+
+
+
+## Install a package manager
 
 ## Install minpac
 Get the packpath
