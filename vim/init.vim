@@ -1,6 +1,28 @@
+if &compatible
+" `:set nocp` has many side effects. Therefore this should be done
+"   " only when 'compatible' is set.
+set nocompatible
+endif
+
+set path+=**
+syntax on " Enable syntax highlighting
+filetype indent on " Enable indenting for files
+
 function! PackInit() abort
 	packadd minpac
 	call minpac#init()
+
+	call minpac#add('k-takata/minpac', {'type': 'opt'})
+	"
+	" Additional plugins here.
+
+	" call minpac#add ('godlygeek/tabular')
+	" call minpac#add ('plasticboy/vim-markdown')
+	" call minpac#add ('tpope/vim-obsession')
+	" call minpac#add('radenling/vim-dispatch-neovim')
+	" call minpac#add('tpope/vim-dispatch')
+	" call minpac#add('tpope/vim-projectionist') 
+	" call minpac#add('raimondi/delimitmate')
 
 	call minpac#add('christoomey/vim-sort-motion')
 	call minpac#add('christoomey/vim-system-copy')
@@ -33,14 +55,24 @@ function! PackInit() abort
 	call minpac#add('tpope/vim-commentary')
 	call minpac#add('tpope/vim-fugitive') 
 	call minpac#add('tpope/vim-repeat')
+	call minpac#add('tpope/vim-surround')
+	call minpac#add('tpope/vim-unimpaired')
+	call minpac#add('vim-syntastic/syntastic')
   
 endfunction
 
-command! PackUpdate call PackInit() | call minpac#update()
+if exists('g:vscode')
+    " VSCode extension
+else
+
+command! PackUpdate call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
 command! PackClean call PackInit() | call minpac#clean()
+command! PackStatus call PackInit() | call minpac#status()
 
 let mapleader = " "
-set rtp+=C:\Users\Timothy\scoop\apps\fzf
+nnoremap <leader>zi :e $MYVIMRC<CR>
+nnoremap <leader><CR> :so $MYVIMRC<CR>
+nnoremap <leader>w :up<CR>
 
 " Shortcuts for split navigation
 nnoremap <C-J> <C-W><C-J>
@@ -48,9 +80,73 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
+" Need to figure out how to map alt key
+" nnoremap silent <A-left> :vertical resize -5<cr>
+" nnoremap silent <A-down> :resize +5<cr>
+" nnoremap silent <A-up> :resize -5<cr>
+" nnoremap silent <A-right> :vertical resize +5<cr>
+
+" let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+" let $FZF_DEFAULT_COMMAND ='rg --files --no-ignore-vcs --hidden'
+" let $FZF_DEFAULT_OPTS='--height 20% --layout=reverse --border --inline-info'
+let $FZF_DEFAULT_COMMAND ='rg --files '
 silent nmap <C-p> :FZF<CR>
 let g:fzf_buffers_jump = 1
 
+" Setting for the grepper plugin
+let g:grepper = {}
+let g:grepper.tools = ['rg', 'grep', 'git']
+" Search for the current word
+nnoremap <Leader>* :Grepper -cword -noprompt<CR>
+" Search for the current selection
+" TODO: This will collide with gs => used for sorting by the vim-sort-motion plugin
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
+nnoremap <Leader>g :Grepper -tool git<CR>
+nnoremap <Leader>G :Grepper -tool rg<CR>
+
+" Set up alias grep for GrepperGrep
+function! SetupCommandAlias(input, output)
+	exec 'cabbrev <expr> '.a:input
+	\ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:input.'")'
+	\ .'? ("'.a:output.'") : ("'.a:input.'"))'
+endfunction
+
+call SetupCommandAlias("grep", "GrepperGrep")
+
+set cursorcolumn
+set cursorline
+set guifont=Fira\ Code:h14
+set hidden
+set ignorecase 
+set inccommand=split
+set laststatus=2 "show status line
+set mouse=a
+set nobackup " Disable backup files
+set noswapfile " Don't create temporary swap files
+set nowritebackup
+set number " Enable line numbers
+set shiftround
+set shiftwidth=2 " Indent by 4 spaces when auto-indenting
+set showtabline=1
+set smartcase " Case insensitive search till you put in a capital character
+set smartindent
+set softtabstop=2 " Indent by 2 spaces when hitting tab
+set tabstop=2 " Show existing tab with 2 spaces width
+set wildmenu " Display command line's tab complete options as a menu.
+set splitbelow splitright
+
+if has('nvim')
+	tnoremap <C-J> <C-\><C-n><C-W><C-J>
+	tnoremap <C-H> <C-\><C-n><C-W><C-H>
+	tnoremap <C-K> <C-\><C-n><C-W><C-K>
+	tnoremap <C-L> <C-\><C-n><C-W><C-L>
+endif
+
+set title
+let &titlestring="%{substitute(expand('%:p'), $HOME, '$HOME', '')}"
+
+" This is to toggle and show absolute number on insert mode
 set number relativenumber
 augroup numbertoggle
   autocmd!
@@ -58,50 +154,48 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-set shiftround
-set smartindent
-set guifont=Fira\ Code:h14
-set cursorline
-
-set nocompatible " Use Vim settings, rather than Vi settings
-set softtabstop=2 " Indent by 2 spaces when hitting tab
-set shiftwidth=2 " Indent by 4 spaces when auto-indenting
-set tabstop=2 " Show existing tab with 4 spaces width
-syntax on " Enable syntax highlighting
-filetype indent on " Enable indenting for files
-set smartcase " Case insensitive search till you put in a capital character
-set number " Enable line numbers
-
 " Editor theme
 " colorscheme desert " Set nice looking colorscheme
 colorscheme gruvbox " Set nice looking colorscheme
 set background=dark
 set colorcolumn=80 " Set column 80 color
 
-set noswapfile " Don't create temporary swap files
-set nobackup " Disable backup files
-set laststatus=2 "show status line
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
-set wildmenu " Display command line's tab complete options as a menu.
-
 set directory=$HOME/vimfiles/swp//
 set undofile " Create separate undo file
 set undodir=~/vimfiles/undodir " The undo directory this needs to be present
 
+" Fugitive settings
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gps :Gpush<CR>
+nnoremap <leader>gpl :Gpull<CR>
+
 " Nerdtree customization
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\.pyc$', '\~$', '\.class$', 'node_modules'] "ignore files in NERDTree
+let NERDTreeShowHidden=1
 let g:NERDTreeWinPos = "right"
+nnoremap <leader>zf :NERDTreeFind
 
+if has('unix')
+	let g:system_copy#copy_command='xclip -sel clipboard'
+	let g:system_copy#paste_command='xclip -sel clipboard -o'
+else
+	let g:system_copy#copy_command='clip'
+	let g:system_copy#paste_command='paste'
+endif
 
-let g:ale_fix_on_save=1
-let g:ale_fixers = {
-\ 'javascript':['eslint', 'prettier'],
-\ 'typescript':['eslint', 'prettier']
-\}
-
-let g:coc_global_extensions = [
-  \ 'coc-tsserver'
-  \ ]
+" Coc settings
+let g:coc_global_extensions=[ 
+			\ 'coc-ultisnips',
+			\ 'coc-snippets',
+			\ 'coc-powershell',
+			\ 'coc-marketplace',
+			\ 'coc-xml',
+			\ 'coc-tsserver',
+			\ 'coc-styled-components',
+			\ 'coc-react-refactor',
+			\ 'coc-pairs',
+			\ 'coc-json']
 
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extensions += ['coc-prettier']
@@ -110,32 +204,9 @@ endif
 if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
   let g:coc_global_extensions += ['coc-eslint']
 endif
-let g:coc_global_extensions = [
-  \ 'coc-tsserver'
-  \ ]
 
-if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-  let g:coc_global_extensions += ['coc-prettier']
-endif
-
-if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-  let g:coc_global_extensions += ['coc-eslint']
-endif
-
-" " GoTo code navigation.
-" nmap <leader>gd <Plug>(coc-definition)
-" nmap <leader>gy <Plug>(coc-type-definition)
-" nmap <leader>gi <Plug>(coc-implementation)
-" nmap <leader>gr <Plug>(coc-references)
-" nmap <leader>rr <Plug>(coc-rename)
-" nmap <leader>rpr :CocSearch <C-R>=expand("<cword>")<CR><CR>
-" nmap <leader>g[ <Plug>(coc-diagnostic-prev)
-" nmap <leader>g] <Plug>(coc-diagnostic-next)
-" nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
-" nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
-" nnoremap <leader>cr :CocRestart
-" nmap <leader>do <Plug>(coc-codeaction)
-" nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+" get the result of test failures in quick fix
+" let test#strategy = "dispatch"
 
 " function! ShowDocIfNoDiagnostic(timer_id)
 " 	if (coc#util#has_float() == 0)
@@ -149,29 +220,6 @@ endif
 
 " autocmd CursorHoldI * :call <SID>show_hover_doc()
 " autocmd CursorHold * :call <SID>show_hover_doc()
-
-" nnoremap silent <M-left> :vertical resize -5<cr>
-" nnoremap silent <M-down> :resize +5<cr>
-" nnoremap silent <M-up> :resize -5<cr>
-" nnoremap silent <M-right> :vertical resize +5<cr>
-
-
-if has('nvim')
-	tnoremap <Esc> <C-\><C-n>
-	" tnoremap <M-[> <Esc>
-	tnoremap <C-J> <C-\><C-n><C-W><C-J>
-	tnoremap <C-H> <C-\><C-n><C-W><C-H>
-	tnoremap <C-K> <C-\><C-n><C-W><C-K>
-	tnoremap <C-L> <C-\><C-n><C-W><C-L>
-
-endif
-
-" TextEdit might fail if hidden is not set.
-set hidden
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -232,6 +280,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -320,7 +369,18 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
+" Rust settings
+let g:rustfmt_autosave = 1
+let g:rust_clip_command = 'xclip -selection clipboard'
 
 set listchars=eol:¶,tab:>-,trail:~,extends:>,precedes:<
 set list
+
+set rtp+=C:\Users\Timothy\scoop\apps\fzf
+autocmd FileType vim setlocal commentstring=" \ %s
+command! Prettier :CocCommand prettier.formatFile
+:sp | term
+
+endif 
