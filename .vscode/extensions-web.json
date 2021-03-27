@@ -1,0 +1,15 @@
+// Suggested extensions
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "bierner.github-markdown-preview",
+    "donjayamanne.git-extension-pack",
+    "eamodio.gitlens",
+    "ms-vsliveshare.vsliveshare",
+    "johnpapa.vscode-peacock",
+    "coenraads.bracket-pair-colorizer-2",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "naumovs.color-highlight"
+  ]
+}
