@@ -10,6 +10,7 @@
     "coenraads.bracket-pair-colorizer-2",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "naumovs.color-highlight"
+    "naumovs.color-highlight",
+    "vscodevim.vim"
   ]
 }
