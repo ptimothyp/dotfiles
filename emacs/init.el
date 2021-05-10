@@ -93,7 +93,7 @@
 
 (add-to-list 'load-path "/Users/timothy/.emacs.d/emacs-color-theme-solarized")
 (require 'color-theme-solarized)
-(color-theme-solarized-dark)
+(color-theme-solarized-dark) 
 ;;(color-theme-solarized-light)
 ;;
 
@@ -118,13 +118,17 @@
 (global-set-key (kbd "M-<down>") 'shrink-window)
 
 
+
+
+
 ;; Org mode configuration
+(require 'org)
 (add-to-list 'load-path (expand-file-name "~/source/org-mode/lisp"))
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
-
+(setq org-log-done t)
 
 (setq org-agenda-files (quote ("~/source/org"
                                "~/source/org/client1"
