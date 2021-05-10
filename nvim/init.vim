@@ -27,6 +27,7 @@ function! PackInit() abort
 	" call minpac#add('tpope/vim-projectionist') 
 	call minpac#add ('scrooloose/nerdtree')
 	call minpac#add ('jnurmine/zenburn')
+gruvbox-community/gruvbox
 	call minpac#add('altercation/vim-colors-solarized')
 	call minpac#add('christoomey/vim-sort-motion')
 	call minpac#add('christoomey/vim-system-copy')
@@ -134,6 +135,10 @@ noremap <silent> ]b :bnext<CR>
 noremap <silent> [B :bfirst<CR>
 noremap <silent> ]B :blast<CR>
 
+nnoremap <S-Up> :m-2<CR>
+nnoremap <S-Down> :m+<CR>
+inoremap <S-Up> <Esc>:m-2<CR>
+inoremap <S-Down> <Esc>:m+<CR>
 
 set background=dark
 
