@@ -1,32 +1,41 @@
+if &compatible
+" `:set nocp` has many side effects. Therefore this should be done
+"   " only when 'compatible' is set.
+	set nocompatible
+endif
+
+set path+=**
+syntax on " Enable syntax highlighting
+filetype indent on " Enable indenting for files
+
 function! PackInit() abort
 	packadd minpac
 	call minpac#init()
-	call minpac#add('tpope/vim-surround')
 	call minpac#add('gruvbox-community/gruvbox')
-	call minpac#add('k-takata/minpac', {'type': 'opt'})
+	call minpac#add('janko-m/vim-test')
+	call minpac#add('jparise/vim-graphql')
 	call minpac#add('junegunn/fzf')
 	call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
-	call minpac#add('tpope/vim-projectionist')
-	call minpac#add('tpope/vim-dispatch')
-	call minpac#add('tpope/vim-commentary')
-	call minpac#add('radenling/vim-dispatch-neovim')
+	call minpac#add('k-takata/minpac', {'type': 'opt'})
 	call minpac#add('leafgarland/typescript-vim')
-	call minpac#add('w0rp/ale')
-	call minpac#add('mhinz/vim-grepper')
-	call minpac#add('tpope/vim-fugitive')
-	call minpac#add('janko-m/vim-test')
-	call minpac#add('mattn/emmet-vim')
-	call minpac#add('preservim/nerdtree')
-	call minpac#add('neoclide/coc.nvim')
-	call minpac#add('rust-lang/rust.vim')
-	call minpac#add('vim-syntastic/syntastic')
-	call minpac#add('peitalin/vim-jsx-typescript')
-	call minpac#add('pangloss/vim-javascript')
-	call minpac#add('styled-components/vim-styled-components', { 'branch': 'main' })
-	call minpac#add('jparise/vim-graphql')
 	call minpac#add('machakann/vim-highlightedyank')
+	call minpac#add('mattn/emmet-vim')
+	call minpac#add('mhinz/vim-grepper')
+	call minpac#add('neoclide/coc.nvim')
+	call minpac#add('pangloss/vim-javascript')
+	call minpac#add('peitalin/vim-jsx-typescript')
+	call minpac#add('preservim/nerdtree')
+	call minpac#add('radenling/vim-dispatch-neovim')
+	call minpac#add('rust-lang/rust.vim')
+	call minpac#add('styled-components/vim-styled-components', { 'branch': 'main' })
+	call minpac#add('tpope/vim-commentary')
+	call minpac#add('tpope/vim-dispatch')
+	call minpac#add('tpope/vim-fugitive')
+	call minpac#add('tpope/vim-projectionist')
+	call minpac#add('tpope/vim-surround')
 	call minpac#add('tpope/vim-unimpaired')
-  
+	call minpac#add('vim-syntastic/syntastic')
+	call minpac#add('w0rp/ale')
 endfunction
 
 command! PackUpdate call PackInit() | call minpac#update()
