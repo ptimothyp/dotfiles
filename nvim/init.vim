@@ -6,7 +6,6 @@ endif
 
 filetype on
 
-
 function! PackInit() abort
 	packadd minpac
 	call minpac#add('altercation/vim-colors-solarized')
@@ -15,6 +14,7 @@ function! PackInit() abort
 	call minpac#add('christoomey/vim-titlecase')
 	call minpac#add('easymotion/vim-easymotion')
 	call minpac#add('gruvbox-community/gruvbox')
+	call minpac#add('gust-lang/rust.vim')
 	call minpac#add('inkarkat/vim-ReplaceWithRegister')
 	call minpac#add('inkarkat/vim-visualrepeat')
 	call minpac#add('janko-m/vim-test')
@@ -30,7 +30,6 @@ function! PackInit() abort
 	call minpac#add('omnisharp/omnisharp-vim')
 	call minpac#add('pangloss/vim-javascript')
 	call minpac#add('peitalin/vim-jsx-typescript')
-	call minpac#add('gust-lang/rust.vim')
 	call minpac#add('ryanoasis/vim-devicons')
 	call minpac#add('styled-components/vim-styled-components', { 'branch': 'main' })
 	call minpac#add('tpope/vim-commentary')
@@ -199,7 +198,7 @@ set splitbelow splitright
 " Rust setting
 let g:rustfmt_autosave = 1
 
-augroup journal 
+augroup journal
   autocmd VimEnter */journal/** 0r ~/vim/templates/journal.skeleton
 augroup end
 
