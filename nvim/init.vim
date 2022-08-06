@@ -175,19 +175,6 @@ if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
 endif
 
 
-" function! ShowDocIfNoDiagnostic(timer_id)
-" 	if (coc#util#has_float() == 0)
-" 			silent call CocActionAsync('doHover')
-" 	endif
-" endfunction
-
-" function! s:show_hover_doc()
-" 	call timer_start(500, 'ShowDocIfNoDiagnostic')
-" endfunction
-
-" autocmd CursorHoldI * :call <SID>show_hover_doc()
-" autocmd CursorHold * :call <SID>show_hover_doc()
-
 " Give more space for displaying messages.
 set cmdheight=2
 
@@ -441,7 +428,7 @@ call SetupCommandAlias("grep", "GrepperGrep")
 " Start Fugitive settings
 nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gps :Git push<CR>
-nnoremap <leader>gpl :Gpull<CR>
+nnoremap <leader>gpl :Git pull<CR>
 " End Fugitive settings
 
 inoremap jk <Esc>
