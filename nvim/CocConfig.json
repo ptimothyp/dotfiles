@@ -1,4 +1,13 @@
 {
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "haskell",
+    "json"
+  ],
   "languageserver": {
     "haskell": {
       "command": "haskell-language-server-wrapper",
@@ -13,7 +22,18 @@
       "filetypes": ["haskell", "lhaskell"]
     }
   },
+  "snippets.ultisnips.directories": ["UltiSnips", "gosnippets/UltiSnips"],
+
   "codeLens.enable": true,
-  "coc.preferences.formatOnSaveFiletypes": ["haskell"],
-  "coc.preferences.snippets.enable": true
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "typescript",
+    "markdown",
+    "javascript",
+    "javascriptreact",
+    "typescriptreact",
+    "json",
+    "cs",
+    "html"
+  ]
 }
