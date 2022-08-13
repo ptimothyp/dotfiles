@@ -9,6 +9,7 @@ filetype on
 function! PackInit() abort
 	packadd minpac
 	call minpac#add('altercation/vim-colors-solarized')
+	call minpac#add('mhinz/vim-signify')
 	call minpac#add('christoomey/vim-sort-motion')
 	call minpac#add('christoomey/vim-system-copy')
 	call minpac#add('christoomey/vim-titlecase')
