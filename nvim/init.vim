@@ -182,7 +182,7 @@ nmap <leader>zf :NERDTreeFind<CR>
 set background=dark
 
 " Git fugitive mappings
-nmap <leader>gs :Gstatus<CR>
+nmap <leader>gs :Git<CR>
 
 " Set colorscheme
 colorscheme gruvbox
@@ -215,8 +215,6 @@ augroup end
 " Map shortcut for Escape
 imap jk <Esc>
 
-
 let g:OmniSharp_popup=0
 let g:rufo_auto_formatting = 1
-
 echom "    ◙‿◙ ♥◡♥ (⌐■_■)    "
