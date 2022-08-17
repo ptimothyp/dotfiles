@@ -1,0 +1,38 @@
+{
+  "eslint.autoFixOnSave": true,
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "typescript",
+    "markdown",
+    "javascript",
+    "javascriptreact",
+    "typescriptreact",
+    "json",
+    "cs",
+    "html",
+    "haskell"
+  ],
+  "languageserver": {
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "formatterPriority": 0,
+      "args": ["--lsp"],
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yaml",
+        "hie.yaml"
+      ],
+      "filetypes": ["haskell", "lhaskell"]
+    }
+  },
+  "python.jediEnabled": true,
+  "codeLens.enable": true
+}
