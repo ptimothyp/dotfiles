@@ -19,7 +19,10 @@ return require('packer').startup(function()
 	use 'ryanoasis/vim-devicons'
 	-- use 'preservim/nerdtree'
 	use 'scrooloose/nerdtree'
-	use 'junegunn/fzf'
+  use({
+      "junegunn/fzf",
+    run = function() vim.fn["fzf#install()"]() end,
+  })
 	use 'junegunn/fzf.vim'
 	use 'kana/vim-textobj-entire'
 	use 'kana/vim-textobj-indent'
@@ -47,4 +50,9 @@ return require('packer').startup(function()
 	use 'tpope/vim-surround'
 	use 'tpope/vim-unimpaired'
 	use 'vim-syntastic/syntastic'
+-- install without yarn or npm
+use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+})
 end)
