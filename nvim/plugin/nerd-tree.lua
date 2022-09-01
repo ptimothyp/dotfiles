@@ -1,5 +1,5 @@
-vim.api.nvim_set_keymap('n','<C-n>', ":NERDTreeToggle<CR>", {noremap = false})
-vim.api.nvim_set_keymap('n','<Leader>zf', ":NERDTreeFind<CR>", {noremap = false})
+vim.keymap.set('n','<C-n>', ":NERDTreeToggle<CR>")
+vim.keymap.set('n','<Leader>zf', ":NERDTreeFind<CR>")
 
 vim.cmd[[
 let g:NERDTreeWinPos = "right"
