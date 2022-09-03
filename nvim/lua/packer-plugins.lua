@@ -34,8 +34,9 @@ return require('packer').startup(function()
 	use 'mattn/emmet-vim'
 	use 'mhinz/vim-grepper'
 	use 'mhinz/vim-signify'
+ use 'neovim/nvim-lspconfig'
 	-- use 'neoclide/coc.nvim'
-	use {'neoclide/coc.nvim', branch = 'release'}
+	-- use {'neoclide/coc.nvim', branch = 'release'}
 	use 'neovimhaskell/haskell-vim'
 	use 'omniSharp/omniSharp-vim'
 	use 'pangloss/vim-javascript'
@@ -58,5 +59,7 @@ return require('packer').startup(function()
 		'nvim-telescope/telescope.nvim', tag = '0.1.0',
 	-- or                            , branch = '0.1.x',
 			requires = { {'nvim-lua/plenary.nvim'} }
-}
+
+  }
+  use 'nvim-treesitter/nvim-treesitter'
 end)
