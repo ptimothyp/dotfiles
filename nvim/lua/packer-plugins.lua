@@ -51,14 +51,17 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired'
   use 'vim-syntastic/syntastic'
+
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
-
+  use "rafamadriz/friendly-snippets"
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/vim-vsnip-integ'
+
 
   use({
     "iamcco/markdown-preview.nvim",
