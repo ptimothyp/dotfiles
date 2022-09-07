@@ -61,6 +61,7 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
   use 'stevearc/overseer.nvim'
+	use 'sbdchd/neoformat'
 
   use({
     "iamcco/markdown-preview.nvim",
