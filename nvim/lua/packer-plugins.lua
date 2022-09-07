@@ -50,8 +50,7 @@ return require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired'
-  use 'vim-syntastic/syntastic'
-
+  -- use 'vim-syntastic/syntastic'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
@@ -61,7 +60,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
-
+  use 'stevearc/overseer.nvim'
 
   use({
     "iamcco/markdown-preview.nvim",
@@ -81,4 +80,9 @@ return require('packer').startup(function()
       end
   }
   use 'nvim-treesitter/nvim-treesitter'
+
+use {
+  'nvim-lualine/lualine.nvim',
+  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+}
 end)
