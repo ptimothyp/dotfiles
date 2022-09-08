@@ -48,3 +48,9 @@ require('lspconfig')['hls'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
+require('lspconfig')['powershell_es'].setup{
+		bundle_path = 'c:/tools/PowerShellEditorServices',
+		shell = 'powershell.exe',
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
