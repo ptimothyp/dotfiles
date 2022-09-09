@@ -20,3 +20,16 @@ apt install python3-pip
 
 ### Install neo remote using pip3
 pip3 install --user --upgrade neovim-remote
+
+## Install language servers
+### Powershell
+Download the language server and unzip it.
+(Powershell) (https://github.com/PowerShell/PowerShellEditorServices/releases)
+```lua 
+require('lspconfig')['powershell_es'].setup{
+    bundle_path = 'c:/tools/PowerShellEditorServices',
+    shell = 'powershell.exe',
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+```
