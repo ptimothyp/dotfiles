@@ -51,6 +51,14 @@ require('lspconfig')['hls'].setup{
 require('lspconfig')['powershell_es'].setup{
 		bundle_path = 'c:/tools/PowerShellEditorServices',
 		shell = 'powershell.exe',
+require('lspconfig')['sumneko_lua'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
+		settings = {
+			Lua = {
+			diagnostics = {
+			globals = {"vim"}
+		}
+	}
+	}
 }
