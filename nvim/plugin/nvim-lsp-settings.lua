@@ -49,9 +49,15 @@ require('lspconfig')['hls'].setup{
     flags = lsp_flags,
 }
 
+local pwBundlePath = 'C:/tools/PowerShellEditorServices'
+local pwShell = 'powershell.exe'
+if vim.fn.has('macunix')  then
+	pwBundlePath = '/Users/timothy/PowerShellEditorServices'
+	pwShell = 'pwsh'
+end
 require'lspconfig'.powershell_es.setup{
-  bundle_path = 'C:/tools/PowerShellEditorServices',
-  shell = 'powershell.exe',
+  bundle_path = pwBundlePath,
+  shell = pwShell,
 }
 
 require('lspconfig')['sumneko_lua'].setup{
