@@ -36,30 +36,38 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
-require('lspconfig')['pyright'].setup{
+require'lspconfig'.pyright.setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
-require('lspconfig')['tsserver'].setup{
+require'lspconfig'.tsserver.setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
-require('lspconfig')['hls'].setup{
+require'lspconfig'.hls.setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
-require('lspconfig')['powershell_es'].setup{
-		bundle_path = 'c:/tools/PowerShellEditorServices',
-		shell = 'pwsh',
-	}
-require('lspconfig')['sumneko_lua'].setup{
+
+local pwBundlePath = 'C:/tools/PowerShellEditorServices'
+local pwShell = 'powershell.exe'
+if vim.fn.has('macunix')  then
+	pwBundlePath = '/Users/timothy/PowerShellEditorServices'
+	pwShell = 'pwsh'
+end
+require'lspconfig'.powershell_es.setup{
+  bundle_path = pwBundlePath,
+  shell = pwShell,
+}
+
+require'lspconfig'.sumneko_lua.setup{
     on_attach = on_attach,
     flags = lsp_flags,
-		settings = {
-			Lua = {
-			diagnostics = {
-			globals = {"vim"}
-		}
-	}
-	}
+    settings = {
+      Lua = {
+      diagnostics = {
+      globals = {"vim"}
+    }
+  }
+}
 }
