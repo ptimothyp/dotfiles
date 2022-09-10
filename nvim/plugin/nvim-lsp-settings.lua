@@ -51,7 +51,7 @@ require'lspconfig'.hls.setup{
 
 local pwBundlePath = 'C:/tools/PowerShellEditorServices'
 local pwShell = 'powershell.exe'
-if vim.fn.has('macunix')  then
+if vim.fn.has('macunix') ~= 0  then
 	pwBundlePath = '/Users/timothy/PowerShellEditorServices'
 	pwShell = 'pwsh'
 end
