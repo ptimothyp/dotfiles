@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.api.nvim_set_keymap('i', 'jk', '<ESC>', {noremap = true})
+vim.keymap.set('i', 'jk', '<ESC>')
 
 -- number settings
 vim.o.number = true
