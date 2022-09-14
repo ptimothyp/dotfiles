@@ -88,5 +88,11 @@ use {
 }
 
 	use 'justinmk/vim-sneak'
+	use '/Users/timothy/sources/stackmap.nvim'
 
+  use {
+    'ThePrimeagen/harpoon',
+      requires = { {'nvim-lua/plenary.nvim'} }
+  }
 end)
+
