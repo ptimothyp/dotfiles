@@ -88,7 +88,8 @@ use {
 }
 
 	use 'justinmk/vim-sneak'
-	use '/Users/timothy/sources/stackmap.nvim'
+	-- use '/Users/timothy/sources/stackmap.nvim'
+	use 'ptimothyp/stackmap.nvim'
 
   use {
     'ThePrimeagen/harpoon',
