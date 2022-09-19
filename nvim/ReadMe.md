@@ -1,9 +1,3 @@
-## Install a package manager
-```shell
-git clone https://github.com/k-takata/minpac.git \
-    ~/.config/nvim/pack/minpac/opt/minpac
-```
-
 ## Install fuzzy searh
 ```shell
 sudo pacman -S fzf
@@ -32,4 +26,10 @@ require('lspconfig')['powershell_es'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
+
+```
+### Typescript
+Prerequisite : Node and npm
+```commandline
+npm i -g typescript-language-server typescript-language-server
 ```
