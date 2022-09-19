@@ -16,3 +16,10 @@ vim.keymap.set('t', '<C-J>', '<C-\\><C-n><C-W><C-J>')
 vim.keymap.set('t', '<C-H>', '<C-\\><C-n><C-W><C-H>')
 vim.keymap.set('t', '<C-K>', '<C-\\><C-n><C-W><C-K>')
 vim.keymap.set('t', '<C-L>', '<C-\\><C-n><C-W><C-L>')
+
+local stackmap = require("stackmap")
+stackmap.push("lua_test", "n", {
+	["<space>t"] = "<Plug>PlenaryTestFile"
+})
+
+-- stackmap.pop("lua_test")
