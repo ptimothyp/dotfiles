@@ -6,6 +6,16 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
+local pid = vim.fn.getpid()
+
+local omnisharp_bin = "/Users/timothy/binaries/omnisharp-osx-arm64-net6/omnisharp"
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+require'lspconfig'.omnisharp.setup{
+	capabilities =capabilities,
+    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) }
+    -- Additional configuration can be added here
+}
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -29,7 +39,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
 end
 
 local lsp_flags = {
@@ -60,7 +70,7 @@ require'lspconfig'.powershell_es.setup{
   shell = pwShell,
 }
 
-require'lspconfig'.sumneko_lua.setup{
+require'lspconfig'.lua_ls.setup{
     on_attach = on_attach,
     flags = lsp_flags,
     settings = {
