@@ -31,5 +31,5 @@ require('lspconfig')['powershell_es'].setup{
 ### Typescript
 Prerequisite : Node and npm
 ```commandline
-npm i -g typescript-language-server typescript-language-server
+npm i -g typescript-language-server typescript
 ```
