@@ -62,9 +62,6 @@ if vim.fn.has('macunix') ~= 0 then
 	pwBundlePath = '/Users/timothy/PowerShellEditorServices'
 	pwShell = 'pwsh'
 end
-require 'lspconfig'.powershell_es.setup {
-	bundle_path = pwBundlePath,
-	shell = pwShell,
 }
 
 require 'lspconfig'.lua_ls.setup {
