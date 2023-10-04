@@ -81,3 +81,5 @@ require'lspconfig'.lua_ls.setup{
   }
 }
 }
+
+-- require'lspconfig'.csharp_ls.setup{}
