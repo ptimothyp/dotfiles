@@ -62,7 +62,6 @@ if vim.fn.has('macunix') ~= 0 then
 	pwBundlePath = '/Users/timothy/PowerShellEditorServices'
 	pwShell = 'pwsh'
 end
-}
 
 require 'lspconfig'.lua_ls.setup {
 	on_attach = on_attach,
