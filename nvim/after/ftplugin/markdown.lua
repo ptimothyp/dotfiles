@@ -1,1 +1,1 @@
-vim.api.nvim_set_keymap('n', '<leader>mp', ':MarkdownPreview<CR>', {noremap = true})
+vim.keymap.set('n', '<leader>mp', ':MarkdownPreview<CR>', {noremap = true, buffer=true})

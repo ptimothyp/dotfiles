@@ -1,6 +1,6 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -19,8 +19,15 @@ require'lspconfig'.omnisharp.setup{
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+	if client.server_capabilities.documentFormattingProvider then
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = vim.api.nvim_create_augroup("Format", { clear = true }),
+			buffer = bufnr,
+			callback = function() vim.lsp.buf.formatting_seq_sync() end
+		})
+	end
+	-- Enable completion triggered by <c-x><c-o>
+	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -43,43 +50,40 @@ local on_attach = function(client, bufnr)
 end
 
 local lsp_flags = {
-  -- This is the default in Nvim 0.7+
-  debounce_text_changes = 150,
+	-- This is the default in Nvim 0.7+
+	debounce_text_changes = 150,
 }
-require'lspconfig'.pyright.setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
+require 'lspconfig'.pyright.setup {
+	on_attach = on_attach,
+	flags = lsp_flags,
 }
-require'lspconfig'.tsserver.setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
+require 'lspconfig'.tsserver.setup {
+	on_attach = on_attach,
+	flags = lsp_flags,
 }
-require'lspconfig'.hls.setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
+require 'lspconfig'.hls.setup {
+	on_attach = on_attach,
+	flags = lsp_flags,
 }
 
 local pwBundlePath = 'C:/tools/PowerShellEditorServices'
 local pwShell = 'powershell.exe'
-if vim.fn.has('macunix') ~= 0  then
+if vim.fn.has('macunix') ~= 0 then
 	pwBundlePath = '/Users/timothy/PowerShellEditorServices'
 	pwShell = 'pwsh'
 end
-require'lspconfig'.powershell_es.setup{
-  bundle_path = pwBundlePath,
-  shell = pwShell,
 }
 
-require'lspconfig'.lua_ls.setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-    settings = {
-      Lua = {
-      diagnostics = {
-      globals = {"vim", "use", "it", "describe"}
-    }
-  }
-}
+require 'lspconfig'.lua_ls.setup {
+	on_attach = on_attach,
+	flags = lsp_flags,
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim", "use", "it", "describe" }
+			}
+		}
+	}
 }
 
 -- require'lspconfig'.csharp_ls.setup{}

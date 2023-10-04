@@ -96,7 +96,10 @@ return require('packer').startup(function()
           require('Comment').setup()
       end
   }
-  use 'nvim-treesitter/nvim-treesitter'
+	use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+	}
 
 use {
   'nvim-lualine/lualine.nvim',
@@ -111,6 +114,7 @@ use {
     'ThePrimeagen/harpoon',
       requires = { {'nvim-lua/plenary.nvim'} }
   }
+	use 'vimwiki/vimwiki'
 
  if packer_bootstrap then
     require('packer').sync()
