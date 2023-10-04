@@ -48,6 +48,9 @@ return require('packer').startup(function()
   use 'mhinz/vim-grepper'
   use 'mhinz/vim-signify'
   use 'neovim/nvim-lspconfig'
+  use {
+      'williamboman/mason.nvim'
+  }
   -- use 'neoclide/coc.nvim'
   -- use {'neoclide/coc.nvim', branch = 'release'}
   use 'neovimhaskell/haskell-vim'
@@ -74,7 +77,7 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
   use 'stevearc/overseer.nvim'
-	use 'sbdchd/neoformat'
+  use 'sbdchd/neoformat'
 
   use({
     "iamcco/markdown-preview.nvim",
@@ -103,9 +106,9 @@ use {
   requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 }
 
-	use 'justinmk/vim-sneak'
-	-- use '/Users/timothy/sources/stackmap.nvim'
-	use 'ptimothyp/stackmap.nvim'
+  use 'justinmk/vim-sneak'
+  -- use '/Users/timothy/sources/stackmap.nvim'
+  use 'ptimothyp/stackmap.nvim'
 
   use {
     'ThePrimeagen/harpoon',

@@ -1,4 +1,4 @@
-local nmap = function (name, map)
+local nmap = function(name, map)
 	vim.keymap.set('n', name, map)
 end
 nmap('<C-J>', '<C-W><C-J>')
@@ -9,7 +9,7 @@ nmap('<leader>zi', ':e $MYVIMRC<CR>')
 -- vim.keymap.set('n', '<leader><CR>', ':so $MYVIMRC<CR>')
 nmap('<leader><CR>', ':so %<CR>')
 nmap('<leader>w', ':up<CR>')
-nmap('<leader>f', ':FZF<CR>')
+nmap('<leader><space>', ':FZF<CR>')
 nmap('<leader>b', ':Buffers<CR>')
 
 vim.keymap.set('t', '<C-J>', '<C-\\><C-n><C-W><C-J>')
