@@ -85,7 +85,12 @@ require 'lspconfig'.lua_ls.setup {
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-local omnisharp_bin = "/Users/timothy/binaries/omnisharp-osx-arm64-net6/omnisharp"
+local omnisharp_bin = "c:/tools/omnisharp-win-x64/omnisharp.exe"
+
+if vim.fn.has('macunix') ~= 0 then
+	omnisharp_bin = "/Users/timothy/binaries/omnisharp-osx-arm64-net6/omnisharp"
+end
+
 local pid = vim.fn.getpid()
 require 'lspconfig'.omnisharp.setup {
   on_attach = on_attach,
