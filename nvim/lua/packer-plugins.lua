@@ -1,8 +1,8 @@
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -12,7 +12,6 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function()
-
   --packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -33,7 +32,7 @@ return require('packer').startup(function()
   -- use 'preservim/nerdtree'
   use 'scrooloose/nerdtree'
   use({
-      "junegunn/fzf",
+    "junegunn/fzf",
     run = function() vim.fn["fzf#install()"]() end,
   })
   use 'junegunn/fzf.vim'
@@ -47,9 +46,10 @@ return require('packer').startup(function()
   use 'mattn/emmet-vim'
   use 'mhinz/vim-grepper'
   use 'mhinz/vim-signify'
-  use 'neovim/nvim-lspconfig'
   use {
-      'williamboman/mason.nvim'
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    use 'neovim/nvim-lspconfig'
   }
   -- use 'neoclide/coc.nvim'
   -- use {'neoclide/coc.nvim', branch = 'release'}
@@ -78,33 +78,45 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip-integ'
   use 'stevearc/overseer.nvim'
   use 'sbdchd/neoformat'
+  -- use 'github/copilot.vim'
 
+  -- use {
+  --   'CopilotC-Nvim/CopilotChat.nvim', branch = 'canary',
+  --   requires = { { 'nvim-lua/plenary.nvim' } }
+  --
+  -- }
+  --
+  -- use { "ibhagwan/fzf-lua",
+  --   -- optional for icon support
+  --   requires = { "nvim-tree/nvim-web-devicons" }
+  -- }
+  --
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
-  -- or                            , branch = '0.1.x',
-      requires = { {'nvim-lua/plenary.nvim'} }
+    'nvim-telescope/telescope.nvim', tag = '0.1.5',
+    -- or                            , branch = '0.1.x',
+    requires = { { 'nvim-lua/plenary.nvim' } }
 
   }
 
   use {
-      'numToStr/Comment.nvim',
-      config = function()
-          require('Comment').setup()
-      end
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
   }
-	use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-	}
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
 
-use {
-  'nvim-lualine/lualine.nvim',
-  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-}
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 
   use 'justinmk/vim-sneak'
   -- use '/Users/timothy/sources/stackmap.nvim'
@@ -112,12 +124,23 @@ use {
 
   use {
     'ThePrimeagen/harpoon',
-      requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
-	use 'vimwiki/vimwiki'
+  use 'vimwiki/vimwiki'
 
- if packer_bootstrap then
+  use 'mfussenegger/nvim-dap'
+
+  use({
+    "epwalsh/obsidian.nvim",
+    tag = "*", -- recommended, use latest release instead of latest commit
+    requires = {
+      -- Required.
+      "nvim-lua/plenary.nvim",
+
+      -- see below for full list of optional dependencies 👇
+    },
+  })
+  if packer_bootstrap then
     require('packer').sync()
   end
 end)
-
