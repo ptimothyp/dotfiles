@@ -153,6 +153,14 @@ return require('packer').startup(function()
   })
 
 
+	use {
+        "ThePrimeagen/git-worktree.nvim",
+        config = function()
+            require("git-worktree").setup({})
+            require("telescope").load_extension("git_worktree")
+        end
+    }
+
   if packer_bootstrap then
     require('packer').sync()
   end
