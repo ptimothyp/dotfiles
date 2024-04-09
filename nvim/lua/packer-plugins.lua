@@ -153,13 +153,31 @@ return require('packer').startup(function()
   })
 
 
-	use {
-        "ThePrimeagen/git-worktree.nvim",
-        config = function()
-            require("git-worktree").setup({})
-            require("telescope").load_extension("git_worktree")
-        end
+  use {
+    "ThePrimeagen/git-worktree.nvim",
+    config = function()
+      require("git-worktree").setup({})
+      require("telescope").load_extension("git_worktree")
+    end
+  }
+
+  use {
+    "folke/twilight.nvim",
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
     }
+  }
+  use {
+    "folke/zen-mode.nvim",
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  }
+
 
   if packer_bootstrap then
     require('packer').sync()
