@@ -32,7 +32,8 @@ vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end,
   { desc = "Open harpoon window" })
 -- -- These functions are stored in harpoon.  A plugn that I am developing
 vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
--- -- vim.keymap.set('n', "<C-e>", function() require("harpoon.ui").toggle_quick_menu() end, silent)
+-- vim.keymap.set('n', "<C-e>", function() require("harpoon.ui").toggle_quick_menu() end, silent)
+vim.keymap.set("n", "<leader>hm", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 --
 vim.keymap.set('n', "<leader>f1", function() harpoon:list():select(1) end)
 vim.keymap.set('n', "<leader>f2", function() harpoon:list():select(2) end)
