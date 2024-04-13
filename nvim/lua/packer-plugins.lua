@@ -41,7 +41,7 @@ return require('packer').startup(function()
   use 'kana/vim-textobj-user'
   use 'kassio/neoterm'
   use 'kevinoid/vim-jsonc'
-  use 'leafgarland/typescript-vim'
+  -- use 'leafgarland/typescript-vim'
   use 'machakann/vim-highlightedyank'
   use 'mattn/emmet-vim'
   use 'mhinz/vim-grepper'
@@ -114,6 +114,12 @@ return require('packer').startup(function()
   }
 
   use {
+    'nvim-treesitter/nvim-treesitter-context',
+  }
+
+  use("mbbill/undotree")
+
+  use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
@@ -124,6 +130,7 @@ return require('packer').startup(function()
 
   use {
     'ThePrimeagen/harpoon',
+    branch="harpoon2",
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
   use 'vimwiki/vimwiki'
