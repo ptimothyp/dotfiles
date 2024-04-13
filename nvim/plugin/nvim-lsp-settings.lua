@@ -8,7 +8,7 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 require("mason").setup()
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls", "rust_analyzer" },
+  ensure_installed = { "lua_ls", "rust_analyzer" },
 }
 
 -- Use an on_attach function to only map the following keys
@@ -18,7 +18,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = vim.api.nvim_create_augroup("Format", { clear = true }),
       buffer = bufnr,
-      callback = function() vim.lsp.buf.format({async = true}) end
+      callback = function() vim.lsp.buf.format({ async = true }) end
     })
   end
   -- Enable completion triggered by <c-x><c-o>
@@ -29,9 +29,12 @@ local on_attach = function(client, bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'vd', function() vim.diagnostic.open_float() end, opts)
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<C-h>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wl', function()
@@ -92,7 +95,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 local omnisharp_bin = "c:/tools/omnisharp-win-x64/omnisharp.exe"
 
 if vim.fn.has('macunix') ~= 0 then
-	omnisharp_bin = "/Users/timothy/binaries/omnisharp-osx-arm64-net6/omnisharp"
+  omnisharp_bin = "/Users/timothy/binaries/omnisharp-osx-arm64-net6/omnisharp"
 end
 
 local pid = vim.fn.getpid()
