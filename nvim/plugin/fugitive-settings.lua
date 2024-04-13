@@ -1,3 +1,7 @@
 vim.keymap.set('n', '<leader>gs', ':Git<CR>')
 vim.keymap.set('n', '<leader>gps', ':Git push<CR>')
 vim.keymap.set('n', '<leader>gpl', ':Git pull<CR>')
+vim.keymap.set('n', '<leader>gpf', ':Git fetch<CR>')
+-- vim.keymap.set('n', '<leader>gpr', ':Git rebase<CR>')
+vim.keymap.set('n', 'gu', '<cmd>diffget //2<CR>')
+vim.keymap.set('n', 'gi', '<cmd>diffget //3<CR>')
