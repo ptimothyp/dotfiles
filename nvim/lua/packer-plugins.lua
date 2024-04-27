@@ -81,7 +81,7 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip-integ'
   use 'stevearc/overseer.nvim'
   use 'sbdchd/neoformat'
-  -- use 'githuwb/copilot.vim'
+  use 'github/copilot.vim'
 
   -- use {
   --   'CopilotC-Nvim/CopilotChat.nvim', branch = 'canary',
