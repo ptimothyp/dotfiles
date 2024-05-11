@@ -45,7 +45,7 @@ return require('packer').startup(function()
   use 'kassio/neoterm'
   use 'kevinoid/vim-jsonc'
   -- use 'leafgarland/typescript-vim'
-  use 'machakann/vim-highlightedyank'
+  -- use 'machakann/vim-highlightedyank'
   use 'mattn/emmet-vim'
   use 'mhinz/vim-grepper'
   use 'mhinz/vim-signify'
