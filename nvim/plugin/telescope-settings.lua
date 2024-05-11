@@ -1,8 +1,13 @@
 local tBuiltIn = require 'telescope.builtin'
 require('telescope').setup {
-  defaults = {
-    file_ignore_patterns = {
-      "node_modules"
+  extensions = {
+    ["ui-select"] = {
+      entry_maker = require("telescope.themes").get_dropdown
+    },
+    defaults = {
+      file_ignore_patterns = {
+        "node_modules"
+      }
     }
   }
 }
@@ -14,3 +19,6 @@ vim.keymap.set('n', '<space>fk', tBuiltIn.keymaps, {})
 
 vim.keymap.set('n', '<leader>gws', ':Telescope git_worktree git_worktrees<CR>')
 vim.keymap.set('n', '<leader>gwc', ':Telescope git_worktree create_git_worktree<CR>')
+
+
+require("telescope").load_extension("ui-select")
