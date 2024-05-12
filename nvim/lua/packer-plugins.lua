@@ -77,7 +77,7 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
   use 'stevearc/overseer.nvim'
-  use 'sbdchd/neoformat'
+  -- use 'sbdchd/neoformat'
   use 'github/copilot.vim'
 
   -- use {
@@ -130,7 +130,7 @@ return require('packer').startup(function()
 
   use {
     'ThePrimeagen/harpoon',
-    branch="harpoon2",
+    branch = "harpoon2",
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
   use 'vimwiki/vimwiki'
@@ -185,6 +185,7 @@ return require('packer').startup(function()
     }
   }
 
+  use 'mtikekar/nvim-send-to-term'
 
   if packer_bootstrap then
     require('packer').sync()
