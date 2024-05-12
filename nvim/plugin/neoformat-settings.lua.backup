@@ -1,6 +1,9 @@
 vim.cmd [[
 	let g:neoformat_try_node_exe = 1
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3ee9629ad08857f6ebd2f54f92fb82801c9058a5
 augroup NeoformatAutoFormat
     autocmd!
     autocmd FileType javascript,javascript.jsx setlocal formatprg=prettier\
@@ -8,6 +11,10 @@ augroup NeoformatAutoFormat
                                                             \--print-width\ 80\
                                                             \--single-quote\
                                                             \--trailing-comma\ es5
+<<<<<<< HEAD
     autocmd BufWritePre *.js,*.jsx Neoformat
+=======
+    autocmd BufWritePre *.js,*.jsx undojoin | Neoformat
+>>>>>>> 3ee9629ad08857f6ebd2f54f92fb82801c9058a5
 augroup END
 ]]

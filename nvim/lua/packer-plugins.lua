@@ -28,21 +28,24 @@ return require('packer').startup(function()
   use 'janko-m/vim-test'
   use 'jparise/vim-graphql'
   use 'jremmen/vim-ripgrep'
+
   use 'ryanoasis/vim-devicons'
+  use 'Xuyuanp/nerdtree-git-plugin'
   -- use 'preservim/nerdtree'
   use 'scrooloose/nerdtree'
-  use({
-    "junegunn/fzf",
-    run = function() vim.fn["fzf#install()"]() end,
-  })
-  use 'junegunn/fzf.vim'
+
+  -- use({
+  --   "junegunn/fzf",
+  --   run = function() vim.fn["fzf#install()"]() end,
+  -- })
+  -- use 'junegunn/fzf.vim'
   use 'kana/vim-textobj-entire'
   use 'kana/vim-textobj-indent'
   use 'kana/vim-textobj-user'
   use 'kassio/neoterm'
   use 'kevinoid/vim-jsonc'
   -- use 'leafgarland/typescript-vim'
-  use 'machakann/vim-highlightedyank'
+  -- use 'machakann/vim-highlightedyank'
   use 'mattn/emmet-vim'
   use 'mhinz/vim-grepper'
   use 'mhinz/vim-signify'
@@ -147,17 +150,17 @@ return require('packer').startup(function()
   --     -- see below for full list of optional dependencies 👇
   --   },
   -- })
-  use({
-    'Exafunction/codeium.vim',
-    config = function()
-      vim.keymap.set('i', '<C-g>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
-      vim.keymap.set('i', '<C-;>', function() return vim.fn['codeium#CycleCompletions'](1) end,
-        { expr = true, silent = true })
-      vim.keymap.set('i', '<C-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end,
-        { expr = true, silent = true })
-      vim.keymap.set('i', '<C-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
-    end
-  })
+  -- use({
+  --   'Exafunction/codeium.vim',
+  --   config = function()
+  --     vim.keymap.set('i', '<C-g>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
+  --     vim.keymap.set('i', '<C-;>', function() return vim.fn['codeium#CycleCompletions'](1) end,
+  --       { expr = true, silent = true })
+  --     vim.keymap.set('i', '<C-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end,
+  --       { expr = true, silent = true })
+  --     vim.keymap.set('i', '<C-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
+  --   end
+  -- })
 
 
   use {
@@ -186,6 +189,10 @@ return require('packer').startup(function()
   }
 
   use 'mtikekar/nvim-send-to-term'
+
+  use 'mtikekar/nvim-send-to-term'
+
+  use { 'nvim-telescope/telescope-ui-select.nvim' }
 
   if packer_bootstrap then
     require('packer').sync()
