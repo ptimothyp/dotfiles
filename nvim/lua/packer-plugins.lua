@@ -188,6 +188,7 @@ return require('packer').startup(function()
     }
   }
 
+  use 'mtikekar/nvim-send-to-term'
 
   use 'mtikekar/nvim-send-to-term'
 
