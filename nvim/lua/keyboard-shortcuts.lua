@@ -1,11 +1,17 @@
 local nmap = function(name, map)
-	vim.keymap.set('n', name, map)
+  vim.keymap.set('n', name, map)
 end
 nmap('<C-J>', '<C-W><C-J>')
 nmap('<C-H>', '<C-W><C-H>')
 nmap('<C-K>', '<C-W><C-K>')
 nmap('<C-L>', '<C-W><C-L>')
 nmap('<leader>zi', ':e $MYVIMRC<CR>')
+
+nmap('<M-.>', '<C-W>5<')
+nmap('<M-,>', '<C-W>5>')
+nmap('<M-t>', '<C-W>+')
+nmap('<M-s>', '<C-W>-')
+
 -- vim.keymap.set('n', '<leader><CR>', ':so $MYVIMRC<CR>')
 nmap('<leader><CR>', ':so %<CR>')
 nmap('<leader>w', ':up<CR>')
@@ -19,7 +25,7 @@ vim.keymap.set('t', '<C-L>', '<C-\\><C-n><C-W><C-L>')
 
 local stackmap = require("stackmap")
 stackmap.push("lua_test", "n", {
-	["<space>t"] = "<Plug>PlenaryTestFile"
+  ["<space>t"] = "<Plug>PlenaryTestFile"
 })
 
 -- stackmap.pop("lua_test")
