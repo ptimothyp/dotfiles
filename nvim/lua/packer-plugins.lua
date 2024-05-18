@@ -190,8 +190,6 @@ return require('packer').startup(function()
 
   use 'mtikekar/nvim-send-to-term'
 
-  use 'mtikekar/nvim-send-to-term'
-
   use { 'nvim-telescope/telescope-ui-select.nvim' }
 
   if packer_bootstrap then
