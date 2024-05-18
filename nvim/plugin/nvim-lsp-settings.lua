@@ -73,7 +73,8 @@ require 'lspconfig'.powershell_es.setup {
   on_attach = on_attach,
   flags = lsp_flags,
   bundle_path = pwBundlePath,
-  shell = pwShell
+  shell = pwShell,
+  settings = { powershell = { codeFormatting = { Preset = 'Allman' } } }
 }
 
 require 'lspconfig'.lua_ls.setup {
