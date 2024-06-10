@@ -4,7 +4,8 @@ return {
     tag = '0.1.5',
     branch = "0.1.x",
     dependencies = {
-      'nvim-lua/plenary.nvim'
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-ui-select.nvim'
     },
     config = function()
       local builtin = require('telescope.builtin')
