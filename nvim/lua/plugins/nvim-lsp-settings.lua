@@ -1,13 +1,17 @@
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-
-require("mason").setup()
-require("mason-lspconfig").setup {
-  ensure_installed = { "lua_ls", "rust_analyzer" },
-}
-
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
+return {
+  "neovim/nvim-lspconfig",
+  dependencies = {
+    {
+      'williamboman/mason.nvim',
+      config = function ()
+        require("mason").setup()
+      end,
+    },
+    {
+    'williamboman/mason-lspconfig.nvim',
+    }
+  },
+ config = function()
 local on_attach = function(client, bufnr)
   if client.server_capabilities.documentFormattingProvider then
     vim.api.nvim_create_autocmd("BufWritePre", {
@@ -105,4 +109,5 @@ require 'lspconfig'.omnisharp.setup {
   cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) }
   -- Additional configuration can be added here
 }
--- require'lspconfig'.csharp_ls.setup{}
+  end
+}
