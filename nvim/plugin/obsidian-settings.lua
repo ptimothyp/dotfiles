@@ -12,14 +12,6 @@ require("obsidian").setup(
         path = "/Users/timothy/Library/CloudStorage/OneDrive-Personal/Obsidian/Personal"
         -- path = "~/vaults/personal",
       },
-      {
-        name = "work",
-        path = "/Users/timothy/Library/CloudStorage/OneDrive-Personal/Obsidian/Work",
-        -- Optional, override certain settings.
-        overrides = {
-          notes_subdir = "notes",
-        },
-      },
     },
 
     -- Alternatively - and for backwards compatibility - you can set 'dir' to a single path instead of

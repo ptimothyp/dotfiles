@@ -77,6 +77,11 @@ require 'lspconfig'.powershell_es.setup {
   settings = { powershell = { codeFormatting = { Preset = 'Allman' } } }
 }
 
+require 'lspconfig'.gopls.setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
 require 'lspconfig'.lua_ls.setup {
   on_attach = on_attach,
   flags = lsp_flags,
