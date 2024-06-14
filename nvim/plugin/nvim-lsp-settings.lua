@@ -77,6 +77,13 @@ require 'lspconfig'.powershell_es.setup {
   settings = { powershell = { codeFormatting = { Preset = 'Allman' } } }
 }
 
+require 'lspconfig'.zls.setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  cmd = { '/Users/timothy/sources/zig/zls/zig-out/bin/zls' },
+  filetypes = { 'zig' }
+}
+
 require 'lspconfig'.gopls.setup {
   on_attach = on_attach,
   flags = lsp_flags,
