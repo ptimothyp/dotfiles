@@ -55,6 +55,7 @@ vim.cmd [[
 ]]
 
 
+
 local augroup = vim.api.nvim_create_augroup
 
 local autocmd = vim.api.nvim_create_autocmd
@@ -73,10 +74,7 @@ autocmd('TextYankPost', {
 
 
 vim.o.incsearch = true
--- vim.o.hlsearch = true
+vim.o.hlsearch = true
 vim.o.tabstop = 2
 vim.o.softtabstop = 2
-
-vim.cmd [[
-filetype plugin on
-]]
+vim.filetype.plugin = 'on'
