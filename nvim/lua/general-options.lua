@@ -1,12 +1,11 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 vim.keymap.set('i', 'jk', '<ESC>')
 
-local opt = vim.opt
-
 -- number settings
-opt.number = true
-opt.relativenumber = true
-opt.numberwidth = 3
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.numberwidth = 3
 vim.cmd [[
 :augroup numbertoggle
 :  autocmd!
@@ -15,39 +14,38 @@ vim.cmd [[
 :augroup END
 ]]
 
-opt.mouse = 'a'
-opt.background = "dark"
-opt.colorcolumn = "80"
-opt.cursorcolumn = true
-opt.gfn = "Fira Code:14"
--- opt.gfn = "FiraCode Nerd Font:h14"
-opt.cursorline = true
-opt.directory = "$HOME/vimfiles/swp/"
-opt.hidden = true
-opt.ignorecase = true
+vim.o.mouse = 'a'
+vim.o.background = "dark"
+vim.o.colorcolumn = "80"
+vim.o.cursorcolumn = true
+vim.o.gfn = "Fira Code:h14"
+vim.o.cursorline = true
+vim.o.directory = "$HOME/vimfiles/swp/"
+vim.o.hidden = true
+vim.o.ignorecase = true
 -- show in split window when replacing
-opt.inccommand = "split"
-opt.updatetime = 100
+vim.o.inccommand = "split"
+vim.o.updatetime = 100
 
 -- show list chars
 vim.opt.list = true
 vim.opt.listchars = { eol = '¶', tab = '>-', trail = '~', extends = '>', precedes = '<' }
 
-opt.backup = false
-opt.swapfile = false
-opt.scrolloff = 3
-opt.shiftround = true
-opt.shiftwidth = 2
-opt.showmatch = true
-opt.showtabline = 1
-opt.sidescrolloff = 5
-opt.smartcase = true -- case instance search
-opt.smartindent = true
-opt.splitbelow = true
-opt.splitright = true
-opt.undofile = true
-opt.undodir = vim.fn.expand('~/vimfiles/undodir')
-opt.wildmenu = true
+vim.o.backup = false
+vim.o.swapfile = false
+vim.o.scrolloff = 3
+vim.o.shiftround = true
+vim.o.shiftwidth = 2
+vim.o.showmatch = true
+vim.o.showtabline = 1
+vim.o.sidescrolloff = 5
+vim.o.smartcase = true -- case instance search
+vim.o.smartindent = true
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.undofile = true
+vim.o.undodir = vim.fn.expand('~/vimfiles/undodir')
+vim.o.wildmenu = true
 vim.cmd [[
 		augroup vimrc-incsearch-highlight
 		  autocmd!
@@ -55,6 +53,7 @@ vim.cmd [[
 		  autocmd CmdlineLeave /,\? :set nohlsearch
 		augroup END
 ]]
+
 
 
 local augroup = vim.api.nvim_create_augroup
@@ -68,17 +67,15 @@ autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank({
       higroup = 'IncSearch',
-      timeout = 450,
+      timeout = 400,
     })
   end,
 })
 
 
-opt.incsearch = true
--- opt.hlsearch = true
-opt.tabstop = 2
-opt.softtabstop = 2
-
-vim.cmd [[
-filetype plugin on
-]]
+vim.o.incsearch = true
+vim.o.hlsearch = true
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.filetype.plugin = 'on'
+vim.colorscheme = 'gruvbox'
