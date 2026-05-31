@@ -2,7 +2,7 @@
 -- require("options")
 require ('globals')
 require ('general-options')
-require ('keyboard-shorcuts')
+require ('keyboard-shortcuts')
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

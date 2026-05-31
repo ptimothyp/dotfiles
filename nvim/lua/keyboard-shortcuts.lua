@@ -23,4 +23,18 @@ vim.keymap.set('t', '<C-L>', '<C-\\><C-n><C-W><C-L>')
 -- vim.keymap.set('n', '<leader><CR>', ':so $MYVIMRC<CR>')
 nmap('<leader><CR>', ':so %<CR>')
 nmap('<leader>w', ':up<CR>')
-nmap('<leader>b', ':Buffers<CR>')
+nmap('<leader><space>', ':FZF<CR>')
+nmap('<leader>b', ':buffers<CR>')
+
+
+nmap('<leader>nb', ':bnext<CR>')
+nmap('<leader>pb', ':bprevious<CR>')
+
+nmap('<leader>u', ':UndotreeToggle<CR>')
+--
+-- local stackmap = require("stackmap")
+-- stackmap.push("lua_test", "n", {
+--   ["<space>t"] = "<Plug>PlenaryTestFile"
+-- })
+--
+-- stackmap.pop("lua_test")
