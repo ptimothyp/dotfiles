@@ -22,6 +22,9 @@ return require('packer').startup(function()
   use 'editorconfig/editorconfig-vim'
   use 'gruvbox-community/gruvbox'
   use 'honza/vim-snippets'
+  use { "L3MON4D3/LuaSnip", run = "make install_jsregexp",
+    requires = { "rafamadriz/friendly-snippets" },
+  }
   use 'inkarkat/vim-replacewithregister'
   use 'inkarkat/vim-visualrepeat'
   use 'ionide/Ionide-vim'
@@ -217,6 +220,8 @@ return require('packer').startup(function()
       vim.keymap.set("n", "<space>-", require("oil").toggle_float)
     end,
   }
+
+  use 'Olical/conjure'
 
   if packer_bootstrap then
     require('packer').sync()

@@ -78,4 +78,3 @@ vim.o.hlsearch = true
 vim.o.tabstop = 2
 vim.o.softtabstop = 2
 vim.filetype.plugin = 'on'
-vim.colorscheme = 'gruvbox'
